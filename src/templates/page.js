@@ -3,11 +3,12 @@ import { BlockRendererProvider } from '@webdeveducation/wp-block-tools';
 import { Link } from 'gatsby';
 
 import { blockRendererComponents } from '../config/blockRendererComponents';
+import { Layout } from '../components'
 
 const Page = (props) => {
   console.log("page props: ", props);
   return (
-    <div>
+    <Layout>
       <BlockRendererProvider
         allBlocks={props.pageContext.blocks} 
         renderComponent={blockRendererComponents}
@@ -28,7 +29,7 @@ const Page = (props) => {
           )
         }}
       />
-    </div>
+    </Layout>
   );
 }
 
