@@ -45,7 +45,7 @@ export const Menu = () => {
   console.log("MAIN MENU DATA: ", data);
   const {menuItems} = data.wp.acfOptionsMainMenu.mainMenu
   return (
-    <div className='bg-emerald-900 text-white px-4 font-bold sticky flex justify-between items-center top-0 z-20 h-16'>
+    <div className='bg-gradient-to-tr from-british-racing-green to-emerald-900 text-white px-4 font-bold sticky flex justify-between items-center top-0 z-20 h-16'>
       {/* render logo */}
       <Link to="/">
         <StaticImage src='../../../static/icon.png' layout='fixed' height={30} alt="logo" />
