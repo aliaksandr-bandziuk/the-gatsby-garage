@@ -33,7 +33,9 @@ exports.createPages = async ({ actions, graphql }) => {
     blocks = await assignGatsbyImage({
       blocks,
       graphql,
-      coreMediaText: true
+      coreMediaText: true,
+      coreImage: true,
+      coreCover: true,
     })
 
     createPage({
