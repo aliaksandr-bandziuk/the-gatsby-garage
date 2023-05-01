@@ -1,11 +1,18 @@
 import React from "react";
 import { BlockRenderer, getStyles, getClasses } from "@webdeveducation/wp-block-tools";
 
-import { CallToActionButton, MediaText, Cover } from "../components";
+import { CallToActionButton, MediaText, Cover, TickItem } from "../components";
 import { GatsbyImage } from "gatsby-plugin-image";
 
 export const blockRendererComponents = (block) => {
   switch (block.name) {
+    case "tgg/tickitem": {
+      return (
+        <TickItem key={block.id}>
+          <BlockRenderer blocks={block.innerBlocks} />
+        </TickItem>
+      );
+    }
     case "core/cover": {
       console.log("COVER BLOCK: ", block)
       return (
