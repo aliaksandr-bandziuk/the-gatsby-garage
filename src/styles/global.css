@@ -42,6 +42,22 @@
   ol {
     list-style-type: decimal;
   }
+
+  input, select, textarea {
+    @apply w-full rounded-sm border border-slate-600 px-4 py-2;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply !text-black text-center cursor-pointer bg-yellow-500 hover:bg-yellow-400 transition-colors py-2 px-4 font-bold uppercase no-underline rounded-sm
+  }
+}
+
+.wpcf7-form {
+  input[type="submit"] {
+    @apply btn border-none;
+  }
 }
 
 .wp-site-blocks {

@@ -1,11 +1,48 @@
 import React from "react";
 import { BlockRenderer, getStyles, getClasses } from "@webdeveducation/wp-block-tools";
 
-import { CallToActionButton, MediaText, Cover, TickItem } from "../components";
+import {
+  CallToActionButton,
+  MediaText,
+  Cover,
+  TickItem,
+  CarSearch,
+  ContactForm7
+} from "../components";
 import { GatsbyImage } from "gatsby-plugin-image";
+import numeral from "numeral";
 
 export const blockRendererComponents = (block) => {
   switch (block.name) {
+    case "contact-form-7/contact-form-selector": {
+      return (
+        <ContactForm7
+          key={block.id}
+          formId={block.attributes.id}
+          formMarkup={block.attributes.formMarkup
+            .replace('novalidate="novalidate"', "")
+            .split('aria-required="true"')
+            .join('aria-required="true" required')}
+        />
+      )
+    }
+    case "tgg/carsearch": {
+      return (
+        <CarSearch key={block.id}
+          style={getStyles(block)}
+          className={getClasses(block)}
+        />
+      );
+    }
+    case "tgg/carprice": {
+      return (
+        <div className="flex justify-center">
+          <div className="bg-black text-white text-3xl py-5 px-8 font-heading">
+            £{numeral(block.attributes.price).format("0,0")}
+          </div>
+        </div>
+      );
+    }
     case "tgg/tickitem": {
       return (
         <TickItem key={block.id}>
@@ -14,7 +51,6 @@ export const blockRendererComponents = (block) => {
       );
     }
     case "core/cover": {
-      console.log("COVER BLOCK: ", block)
       return (
         <Cover
           key={block.id}
